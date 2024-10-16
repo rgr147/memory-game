@@ -1,0 +1,103 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fc1e8a;
+    user-select: none; /*impede o usuário de selecionar(com o arrastar do mouse) as informações que estão no body da página*/
+}
+header{
+    width:550px;
+}
+.menu-statistics{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:14px;
+}
+.menu-statistics h2{
+    text-transform: capitalize;
+    font-size: 2em;
+
+}
+.container{
+    position: relative;
+    display: flex; /*permite utilizar o modelo de layout flexível (flexbox)*/
+    flex-direction: column;/*disponibiliza os itens da classe em fila vertical*/
+    justify-content: center;/*alinha itens da classe horizontalmente*/
+    align-items: center; /*alinha itens da classe verticalmente*/
+    gap: 30px; /*espaçamento entre os elementos que pertencem à classe container*/
+    background:linear-gradient(
+        325deg, /*define o diametro(horizontal/vertical/diagonal) para onde o degrade terá inicio e fim*/
+        #03001e 0%, /*inicia o degrade na cor preta*/
+        #7303c0 30%, /*inicia a cor roxa a partir dos 30%, considerando o tamanho do elemento que está recebendo o degrade*/
+        #ec38bc 70%, /*inicia a cor roxa do degrade a partir dos 70% do elemento*/
+        #fdeff9 100%); /*deixa a faixa de 70% à 100% na cor branca do degrade*/
+    padding: 40px 60px; /*adiciona um espaçamento interno do container de 40px das bordas verticais e 60px das laterais */
+}
+h2{
+    font-size: 3em;/*tamanho das letras*/
+    color: #ffffff; 
+    text-transform: uppercase; /*força todas as letras a ficarem maiusculas*/
+    letter-spacing: 0.1em; /*define o espaçamento entre as letras*/
+}
+.btn-reset{
+    padding: 15px 20px;
+    width: 100%; /*faz com que o botao ocupe 100% da lateral disponivel dentro do elemento que está */
+    color: #000000;
+    border: none; /*remove as bordas do botão*/
+    background-color: #ffffff;
+    font-size: 1.5em;   
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer; /*faz o ponteiro do mouse mudar ao passar por cima do botão*/
+    font-weight: 600; /*deixa a letra mais grossa, estilo negrito*/
+}
+.btn-reset:focus{
+    background-color:#aaa000; /*faz o botao mudar ao clicar*/
+}
+.btn-reset:hover{
+    background: #bbbbbb; /*faz o botao mudar de cor ao passar o mouse por cima*/
+}
+.game{
+    /* border: red 1px solid; */
+    width: 430px;
+    height:430px;
+    display: flex;
+    flex-wrap: wrap; /*faz ter quebra de linha se os elementos não couber dentro do espaço horizontal*/
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+.item{
+    position: relative; /*defini que o elemento de classe .item será manipulado dentro das dimenções do elemento pai*/
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background-color: #ffffff;
+
+    font-size: 3em;
+    transform: rotateY(180deg); /* aplica efeito de rotação do elemento de classe .item em angulo de 180 */
+    transition: 0.25s;/*diminiu a velocidade do efeito transform aplicado */           
+}
+/*criando um pseudo elemento. É um elemento virtual criado logo após a criação do elemento de classse .item*/
+.item::after{
+    content: ""; /*não terá conteúdo nenhum*/
+    position: absolute; /*define que esse pseudo elemento será posicionado de acordo com seu primeiro ancestral que tenha uma posição definida como relative, absolute ou fixed permite movimentalo dentro desse elemento*/
+    inset: 0; /*define as bordas top,right,bottom e left como 0, fazendo esse pseudo elemento ocupar toda área do elemento pai*/
+    background: #404040; /*deixando o background escuro para esconder o elemento(o emoji) que está atras desse pseudo elemento*/
+    /* opacity: 0.85; */
+    transition: 0.25s; /**/
+    transform: rotateY(0deg);
+    backface-visibility: hidden; /*esconde o que está atras desse pseudo elemento*/
+}
+.item.boxOpen{
+    transform:rotateY(0deg);
+}
+.boxOpen::after,
+.boxMatch::after{
+    transform:rotateY(180deg);
+}

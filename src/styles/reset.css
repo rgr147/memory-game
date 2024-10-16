@@ -1,0 +1,8 @@
+/* o asterisco indica que as atribuições abaixo serão aplicadas a todos elementos, independentes de tags, substituindo assim o padrão que cada navegador costuma aplicar individualmene */
+*{
+    margin:0; /*remove as margens laterais */
+    padding:0;/*remove o espaçamento interno dos elementos*/
+    box-sizing:border-box;/*defini a borda da box como referencia para aplicar distancias e margens*/
+    outline: none;/*remove a animação padrão que mostra destaque quando o mouse interage com algum elemento, como o botão, por exemplo*/
+    font-family:monospace;/*define a font padrão para todos os textos de todos os elementos*/
+}
