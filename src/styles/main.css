@@ -76,7 +76,7 @@ h2{
     height: 100px;
     display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     background-color: #ffffff;
 
     font-size: 3em;
@@ -96,8 +96,14 @@ h2{
 }
 .item.boxOpen{
     transform:rotateY(0deg);
+    display: flex;
+    justify-content:center ;
 }
 .boxOpen::after,
 .boxMatch::after{
     transform:rotateY(180deg);
+
+}
+.notVisible{
+    visibility: hidden;
 }
